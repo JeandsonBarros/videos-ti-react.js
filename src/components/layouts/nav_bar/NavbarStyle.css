@@ -1,0 +1,50 @@
+
+
+.navUl {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    align-items: center;
+
+}
+
+#navDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+}
+
+.navUl>li {
+    transition: 0.2s;
+    background-color: transparent;
+}
+
+.navUl>li:hover {
+    border-radius: 5px;
+    background-color: #00ffff38;
+}
+
+@media only screen and (max-width: 600px) {
+    .navUl{
+        display: none;
+    }
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    height: 60px;
+    margin: 0;
+    padding: 0 10px 0 10px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background-color: rgba(197, 243, 255, 0.089);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+

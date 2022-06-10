@@ -1,0 +1,25 @@
+
+#hrHeader {
+    margin: 0;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 238, 255, 0.781), rgba(0, 0, 0, 0));
+}
+
+.link {
+    display: flex;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    color: aliceblue;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
