@@ -16,16 +16,17 @@ function FormVideo({ open, setOpen, title, btnText, iconForm, submit, videoObjec
     const [video, setVideo] = useState(videoObject || {})
 
     function handleValue(event) {
-        setVideo({ ...video, [event.target.name]: event.target.value })    
+        setVideo({ ...video, [event.target.name]: event.target.value })
     }
 
-    function handleSubmit(event){
+    function handleSubmit(event) {
         event.preventDefault()
         setOpen(false)
         submit(video)
+        !videoObject && setVideo({})
     }
 
-  
+
     return (
         <>
 
@@ -57,9 +58,24 @@ function FormVideo({ open, setOpen, title, btnText, iconForm, submit, videoObjec
                             name="url"
                             label="Url"
                             type="url"
+                            placeholder='https://www.youtube.com/embed/vídeo_id'
                             fullWidth
                             variant="standard"
                             value={video.url ? video.url : ""}
+                            onChange={handleValue}
+                        />
+
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="thumbnail"
+                            name="thumbnail"
+                            label="Thumbnail"
+                            placeholder='http://img.youtube.com/vi/vídeo_id/hqdefault.jpg'
+                            type="url"
+                            fullWidth
+                            variant="standard"
+                            value={video.thumbnail ? video.thumbnail : ""}
                             onChange={handleValue}
                         />
 
@@ -102,8 +118,8 @@ function FormVideo({ open, setOpen, title, btnText, iconForm, submit, videoObjec
                                 onChange={handleValue}
 
                             >
-                                <MenuItem value="video">Vídeo</MenuItem>
-                                <MenuItem value="playlist">PlayList</MenuItem>
+                                <MenuItem value="Vídeo">Vídeo</MenuItem>
+                                <MenuItem value="PlayList">PlayList</MenuItem>
                             </Select>
 
                         </FormControl>

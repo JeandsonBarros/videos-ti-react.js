@@ -9,6 +9,7 @@ import Switch from '@mui/material/Switch';
 import { Link as LinkDOM } from 'react-router-dom';
 import Search from '../search/Search';
 
+import logo from './logo.png';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
@@ -62,7 +63,7 @@ function Header({ themeUsage, asThemeLight }) {
     return (
         <>
             <header>
-
+      
                 <FormControlLabel
                     sx={{ position: 'fixed', right: 0, top: 26, zIndex: 1 }}
                     control={
@@ -74,7 +75,7 @@ function Header({ themeUsage, asThemeLight }) {
 
 
                 <Link className='link' component={LinkDOM} underline="none" to="/" >
-                    <img  style={{ marginRight: 10 }} src='./logo.png' height={50} width={50} alt="Jeandson Barros" /> Vídeos TI
+                    <img  style={{ marginRight: 10 }} src={logo} height={50} width={50} alt="Jeandson Barros" /> Vídeos TI
                 </Link>
 
                 <Search idSearch="searchHeader" />

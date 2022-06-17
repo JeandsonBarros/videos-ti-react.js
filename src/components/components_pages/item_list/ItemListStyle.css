@@ -1,0 +1,28 @@
+.titleVideo{
+font-size: 20px
+}
+
+.listItems{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.iframeItemList{
+    width:  270px;
+    height: 190px;
+}
+
+@media only screen and (max-width: 600px) {
+    .iframeItemList{
+        width: 100%;
+    }
+}
+
+.imgVideo:hover{
+    
+    opacity: 0.8;
+    cursor: pointer;
+     
+}

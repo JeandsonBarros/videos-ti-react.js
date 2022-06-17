@@ -11,9 +11,12 @@ import Header from './components/layouts/header/Header';
 import Navbar from './components/layouts/nav_bar/Navbar';
 import Home from './components/pages/home/Home';
 import PlayLists from './components/pages/play_lists/PlayLists';
-import AddVideo from './components/pages/components_pages/add_video/AddVideo';
 import Videos from './components/pages/videos/Videos';
 import { themeDark, themeLight } from './Theme';
+import Admin from './components/pages/admin/Admin';
+import SearchPage from './components/pages/search_page/SearchPage';
+import Category from './components/pages/category/Category';
+import ShowVideo from './components/pages/show_video/ShowVideo';
 
 function App() {
 
@@ -35,13 +38,15 @@ function App() {
 
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/:category' element={<Category/>} />
             <Route path='/videos' element={<Videos />} />
+            <Route path='/videos/:video' element={<ShowVideo/>} />
             <Route path='/playlists' element={<PlayLists />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='/search' element={<SearchPage/>} />     
           </Routes>
 
-        </Container>
-
-        <AddVideo/>
+        </Container>  
 
         <Footer />
 

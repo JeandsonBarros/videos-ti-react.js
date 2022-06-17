@@ -1,8 +1,10 @@
+
 import { createTheme } from '@mui/material/styles';
 
 export const themeLight = createTheme({
   palette: {
     mode: 'light',
+    divider: '#00779c',
     primary: {
       main: '#00779c',
       contrastText: '#fff',
@@ -34,8 +36,11 @@ export const themeLight = createTheme({
 });
 
 export const themeDark = createTheme({
-  mode: 'dark',
+  
+ 
   palette: {
+    //mode: 'dark',
+    divider: '#fff',
     primary: {
       main: '#fff',
       contrastText: '#000',
@@ -50,7 +55,7 @@ export const themeDark = createTheme({
     },
     background: {
       default: '#061323',
-      paper: '#06182E',
+      paper: '#081a30',
     },
     typography: {
       "fontFamily": "sans-serif",

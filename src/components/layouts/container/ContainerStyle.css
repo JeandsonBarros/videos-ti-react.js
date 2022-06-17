@@ -1,9 +1,9 @@
 .container {
     min-height: 100%;
     margin: 10px;
-    justify-content: flex-start;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 
     border-radius: 5px;
     padding: 10px;

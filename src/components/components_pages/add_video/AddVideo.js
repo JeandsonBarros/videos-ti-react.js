@@ -1,20 +1,16 @@
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import FormVideo from '../../../layouts/forms/form_video/FormVideo';
-import React, { useState, useEffect } from 'react';
+import FormVideo from '../../layouts/forms/form_video/FormVideo';
+import React, { useState } from 'react';
 import { MdAddCircle } from "react-icons/md";
 import SnackbarAlert from '../snackbar_alert/SnackbarAlert';
 
-function AddVideo() {
+function AddVideo({getVideos}) {
 
     const [open, setOpen] = useState(false);
-    const [alertSnackbar, setAlert] = useState();
-
-    useEffect(() => {
-        fetch("http://localhost:8080/videos")
-            .then(response => response.json())
-            .then(data => console.log(data))
-    }, [])
+    const [visible, setVisible] = useState(false);
+    const [severity, setSeverity] = useState("success");
+    const [text, setText] = useState("OK");
 
     async function submit(videoObject) {
 
@@ -30,20 +26,28 @@ function AddVideo() {
         let response = await fetch('http://localhost:8080/videos', fetchData)
         let data = await response.json()
 
-        const alertServe = <SnackbarAlert text={data} severity={response.status === 201 ? "success" : "error"} />
+        getVideos()
 
-        setAlert(alertServe)
-   
+        setText(data)
+        setSeverity(response.status === 201 ? "success" : "error")
+
+        setVisible(true)
+
     }
 
     return (
         <>
 
-            {alertSnackbar}
-           
+            <SnackbarAlert
+                setVisuble={setVisible}
+                visible={visible}
+                text={text}
+                severity={severity} 
+            />
+
             <SpeedDial
                 ariaLabel="SpeedDial add video"
-                sx={{ position: 'absolute', bottom: 0, right: 16 }}
+                sx={{ position: 'fixed', bottom: 55, right: 16 }}
                 icon={<SpeedDialIcon />}
                 onClick={() => setOpen(true)}
             >

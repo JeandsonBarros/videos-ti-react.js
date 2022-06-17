@@ -1,15 +1,4 @@
 
-
-.navUl {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    align-items: center;
-
-}
-
 #navDiv {
     display: flex;
     flex-wrap: wrap;
@@ -17,23 +6,7 @@
     flex-direction: row;
 }
 
-.navUl>li {
-    transition: 0.2s;
-    background-color: transparent;
-}
-
-.navUl>li:hover {
-    border-radius: 5px;
-    background-color: #00ffff38;
-}
-
-@media only screen and (max-width: 600px) {
-    .navUl{
-        display: none;
-    }
-}
-
-nav {
+.navApp {
     display: flex;
     flex-wrap: wrap;
     height: 60px;

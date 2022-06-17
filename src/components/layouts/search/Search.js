@@ -8,23 +8,38 @@ import Input from '@mui/material/Input';
 import '../Style.css';
 import './SearchStyle.css';
 
+import { useNavigate } from 'react-router-dom';
+
 function Search({ idSearch }) {
 
-    const [search, setSerch] = useState(false);
+    const navigate = useNavigate()
+    const [showSearch, setShowSearch] = useState(false);
+    const [search, setSearch] = useState("")
+
+    function searchVideo(event) {
+        event.preventDefault()
+        setSearch(event.target.value)
+        navigate(
+            { pathname: "/search", search: event.target.value },
+            { state: { search: event.target.value }} 
+            );
+    }
 
     return (
         <div id={idSearch} >
 
-            {search ? (
-                <FormControl variant="filled" id="formControl" fullWidth  sx={{ m: 1}} >
+            {showSearch ? (
+                <FormControl variant="filled" id="formControl" fullWidth sx={{ m: 1 }} >
                     <InputLabel htmlFor="standard-adornment-password">Buscar</InputLabel>
                     <Input
-                        id="standard-adornment-password"    
+                        id="searchInput"
+                        onChange={searchVideo}
+                        value={search}
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
                                     aria-label="toggle password visibility"
-                                    onClick={() => setSerch(!search)}
+                                    onClick={() => setShowSearch(!showSearch)}
                                     color="primary"
                                 >
                                     {<MdClose />}
@@ -34,7 +49,7 @@ function Search({ idSearch }) {
                     />
                 </FormControl>)
                 :
-                <IconButton onClick={() => setSerch(!search)} color="primary">
+                <IconButton onClick={() => setShowSearch(!showSearch)} color="primary">
                     <MdSearch />
                 </IconButton>
             }
