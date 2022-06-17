@@ -1,10 +1,9 @@
-.divButton{
+.divButton {
     padding: 7px;
     height: 100%;
 }
 
-.carVideo:hover{
+.carVideo:hover {
     background-color: rgba(0, 0, 0, 0.158);
     cursor: pointer;
 }
-

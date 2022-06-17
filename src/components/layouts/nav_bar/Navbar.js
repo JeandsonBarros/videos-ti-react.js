@@ -16,7 +16,7 @@ function Navbar() {
   const resources =[ "DiGit ","DiGithubBadge ","DiMysql ","DiMongodb", "DiCss3", "DiHtml5" ]
  */
 
-  const languages = ["Java", "Python", "JavaScript", "PHP", "Ruby"]
+  const languages = ["Java", "Python", "JavaScript", "PHP"]
   const frameworks = ["Angular", "React", "Laravel", "Django", "Node.js", "Spring Boot"]
   const resources = ["Git", "GitHub", "MySQL", "MongoDB", "Css", "Html"]
 

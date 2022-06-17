@@ -1,26 +1,29 @@
 import '../Style.css';
+import './HomeStyle.css'
 
-import { Card, Pagination } from '@mui/material';
+import { Card, Divider, Link } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import VideosService from '../../../services/VideosService';
 import ListVideos from '../../components_pages/list_cards_videos/ListCardsVideos';
 
-
 function Home() {
 
-    const [page, setPage] = useState(1);
-    const [countPagination, setCountPagination] = useState(1);
+    const [playList, setPlayList] = useState([]);
     const [listVideos, setListVideos] = useState([]);
 
     useEffect(() => {
 
-        VideosService.getAll(page).then(data => {
-            setCountPagination(data.totalPages)
-            setListVideos(data.data)
+        VideosService.findBy("type", "PlayList", 1).then(data => {
+            setPlayList(data.data.slice(0, 4))
         })
 
-    }, [page])
+        VideosService.findBy("type", "Vídeo", 1).then(data => {
+            setListVideos(data.data.slice(0, 4))
+        })
+
+    }, [])
 
     return (
         <>
@@ -37,19 +40,15 @@ function Home() {
 
                 </Card>
 
-                 <ListVideos videos={listVideos} />
+                <Link to="/videos" component={NavLink}>Vídeos</Link>
+                <Divider />
+                <ListVideos videos={listVideos} />
+
+                <Link to="/playlists" component={NavLink}>PlayLists</Link>
+                <Divider />
+                <ListVideos videos={playList} />
 
             </section>
-
-            <div className='divPagination'>
-                <Pagination
-                    color='primary'
-                    count={countPagination}
-                    onChange={(event, value) => setPage(value)}
-                    page={page}
-
-                />
-            </div>
 
         </>
     );

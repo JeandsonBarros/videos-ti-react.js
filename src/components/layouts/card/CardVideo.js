@@ -17,7 +17,7 @@ function CardVideo({ channel, type, matter, title, url, _id, thumbnail }) {
     return (
 
 
-        <Card onClick={nav} elevation={5} className="carVideo" sx={{ m: 3, maxWidth: 270 }}>
+        <Card onClick={nav} elevation={5} className="carVideo" sx={{ m: 3, width: 270, height: 400 }}>
 
             {/*  <iframe width="270" height="190" src={url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
 
@@ -29,7 +29,7 @@ function CardVideo({ channel, type, matter, title, url, _id, thumbnail }) {
                     {channel}
                 </Typography>
                 <Typography variant="h6" component="div" color="text.secondary">
-                    {title}
+                    {title.length > 45 ? title.slice(0, 45) + "..." : title}
                 </Typography>
                 <Typography sx={{ mt: 1, mb: 1 }} color="text.secondary">
                     {matter}

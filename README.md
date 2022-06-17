@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# About
+
+Platform to suggest several videos from different YouTube channels related to information technology.
+
 ## Installation of dependencies
 
 `npm install react-icons --save`
