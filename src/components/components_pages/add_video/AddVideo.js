@@ -1,11 +1,13 @@
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import FormVideo from '../../layouts/forms/form_video/FormVideo';
+import { SpeedDial, SpeedDialIcon } from '@mui/material';
 import React, { useState } from 'react';
-import { MdAddCircle } from "react-icons/md";
+import { MdAddCircle } from 'react-icons/md';
+
+import VideosService from '../../../services/VideosService';
+import FormVideo from '../../layouts/forms/form_video/FormVideo';
 import SnackbarAlert from '../snackbar_alert/SnackbarAlert';
 
-function AddVideo({getVideos}) {
+
+function AddVideo({ getVideos }) {
 
     const [open, setOpen] = useState(false);
     const [visible, setVisible] = useState(false);
@@ -14,22 +16,12 @@ function AddVideo({getVideos}) {
 
     async function submit(videoObject) {
 
-        let fetchData = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(videoObject)
-        }
-
-        let response = await fetch('http://localhost:8080/videos', fetchData)
-        let data = await response.json()
+        const response = await VideosService.postVideo(videoObject)
 
         getVideos()
 
-        setText(data)
-        setSeverity(response.status === 201 ? "success" : "error")
+        setText(response.message)
+        setSeverity(response.status)
 
         setVisible(true)
 
@@ -42,7 +34,7 @@ function AddVideo({getVideos}) {
                 setVisuble={setVisible}
                 visible={visible}
                 text={text}
-                severity={severity} 
+                severity={severity}
             />
 
             <SpeedDial

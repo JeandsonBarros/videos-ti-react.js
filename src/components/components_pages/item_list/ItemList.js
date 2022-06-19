@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import SnackbarAlert from "../snackbar_alert/SnackbarAlert";
 import FormVideo from "../../layouts/forms/form_video/FormVideo";
 import ConfirmDialog from "../../layouts/confirm_dialog/ConfirmDialog";
+import VideosService from "../../../services/VideosService";
 
 import { useNavigate } from 'react-router-dom';
 
@@ -22,22 +23,12 @@ function ItemList({ video, getVideos }) {
 
     async function submit(videoObject) {
 
-        let fetchData = {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(videoObject)
-        }
-
-        let response = await fetch('http://localhost:8080/videos/' + video._id, fetchData)
-        let data = await response.json()
+        const response = await VideosService.putVideo(videoObject, video._id)
 
         getVideos()
 
-        setText(data)
-        setSeverity(response.status === 201 ? "success" : "error")
+        setText(response.message)
+        setSeverity(response.status)
 
         setVisible(true)
 
@@ -45,15 +36,10 @@ function ItemList({ video, getVideos }) {
 
     async function deleteVideo() {
 
-        let fetchData = {
-            method: 'DELETE',
-        }
+        const response = await VideosService.deleteVideo(video._id)
 
-        let response = await fetch('http://localhost:8080/videos/' + video._id, fetchData)
-        let data = await response.json()
-
-        setText(data)
-        setSeverity(response.status === 201 ? "success" : "error")
+        setText(response.message)
+        setSeverity(response.status)
 
         setVisible(true)
 
