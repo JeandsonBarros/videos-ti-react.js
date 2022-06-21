@@ -6,11 +6,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Platform to suggest several videos from different YouTube channels related to information technology.
 
+Site: https://videos-ti.herokuapp.com/
+
 ## Installation of dependencies
 
 `npm install react-icons --save`
+
 `npm i react-router-dom`
+
 `npm install @mui/material @emotion/react @emotion/styled`
+
 
 ## Available Scripts
 
