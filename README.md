@@ -10,6 +10,10 @@ Site: https://videos-ti.herokuapp.com/
 
 ## Installation of dependencies
 
+`npm install`
+
+### or
+
 `npm install react-icons --save`
 
 `npm i react-router-dom`
