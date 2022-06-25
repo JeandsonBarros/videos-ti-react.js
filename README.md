@@ -8,6 +8,8 @@ Platform to suggest several videos from different YouTube channels related to in
 
 Site: https://videos-ti.herokuapp.com/
 
+![Figure 1](./Captura.png)
+
 ## Installation of dependencies
 
 `npm install`
